@@ -9,7 +9,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <string>
 using namespace std;
+using namespace ariel;
 
 int main() {
 	cout << ariel::snowman(11114411) << endl;   /* Should print:

@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <stdexcept>
 #include "snowman.hpp"
@@ -6,21 +5,37 @@
 using namespace std;
 
 const unsigned int MAX_NUMS = 8;
-const std::string SPACE = "?";
+const std::string SPACE = " ";
+enum index { i1, i2, i3, i4, i5, i6, i7, i8};
+const int TEN = 10;
 
 namespace ariel {
 
-    // hat
-    std::string H(char c) {
+    // hat 1
+    std::string H1(char c) {
         switch(c) {
         case '1':
             return "_===_\n";
         case '2':
-            return " ___ \n.....\n";
+            return " ___\n";
         case '3':
-            return "   _  \n  /_\\ \n";
+            return "  _\n";
         case '4':
-            return " ___ \n(_*_)\n";
+            return " ___\n";
+        default:
+            return "";
+        }
+    }
+
+    // hat 2
+    std::string H2(char c) {
+        switch(c) {
+        case '2':
+            return ".....\n";
+        case '3':
+            return " /_\\\n";
+        case '4':
+            return "(_*_)\n";
         default:
             return "";
         }
@@ -115,53 +130,60 @@ namespace ariel {
     std::string snowman(unsigned int id) {
 
         // casting the id to a string and create result string
-        std::string seq = std::to_string(id), result = "";
+        std::string seq = std::to_string(id);
+        std::string result;
 
-        unsigned int temp = id, i = 0;
+        unsigned int temp = id;
+        int i = 0;
         
         while (temp != 0) {
             // checking if the id contains only 1-4 digits
-            if(temp % 10 < 1 || temp % 10 > 4) {
+            if(temp % TEN < 1 || temp % TEN > 4) {
                 throw std::invalid_argument("Invalid code '" + std::to_string(temp) + "'");
             }
-            temp = temp / 10;
+            temp = temp / TEN;
             i++;
         }
 
         // checking if length of id is 8
-        if(i != MAX_NUMS) throw std::invalid_argument("Invalid code '5'");
+        if(i != MAX_NUMS) { throw std::invalid_argument("Invalid code '5'"); }
 
-
-        // HNLRXYTB
-
+        // {H , N , L , R , X , Y , T , B }
+        // {i1, i2, i3, i4, i5, i6, i7, i8}
         
-
         // hat
-        result.append(H(seq[0]));
+        // top of the hat
+        if(seq[i5] != '4') { result.append(SPACE); }
+        result.append(H1(seq[i1]));
+
+        // bottom of the hat
+        if(seq[i1] != '1') {
+            if(seq[i5] != '4') { result.append(SPACE); }
+            result.append(H2(seq[i1]));
+        }
 
         // head
-        if(seq[4] == '2') result.append(X(seq[4]));
-        else if(seq[4] != '4') result.append(SPACE);
+        if(seq[i5] == '2') { result.append(X(seq[i5])); }
+        else if(seq[i5] != '4') { result.append(SPACE); }
 
-        result.append("(" + LR(seq[2]) + N(seq[1]) + LR(seq[3]) + ")");
+        result.append("(" + LR(seq[i3]) + N(seq[i2]) + LR(seq[i4]) + ")");
 
-        if(seq[5] == '2') result.append(Y(seq[5]));
+        if(seq[i6] == '2') { result.append(Y(seq[i6])); }
         result.append("\n");
 
         // middle
-        if(seq[4] != '2') result.append(X(seq[4]));
-        else if(seq[4] != '4') result.append(SPACE);
+        if(seq[i5] != '2') { result.append(X(seq[i5])); }
+        else if(seq[i5] != '4') { result.append(SPACE); }
 
-        result.append("(" + T(seq[6]) + ")");
+        result.append("(" + T(seq[i7]) + ")");
 
-        if(seq[5] != '2') result.append(Y(seq[5]));
+        if(seq[i6] != '2') { result.append(Y(seq[i6])); }
         
         result.append("\n");
 
         // bottom
-        if(seq[4] != '4') result.append(SPACE);
-        result.append("(" + B(seq[7]) + ")");
-
+        if(seq[i5] != '4') { result.append(SPACE); }
+        result.append("(" + B(seq[i8]) + ")");
 
         return result;
     }

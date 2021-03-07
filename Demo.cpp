@@ -14,19 +14,24 @@ using namespace std;
 using namespace ariel;
 
 int main() {
-	cout << ariel::snowman(11114411) << endl;   /* Should print:
+	//cout << ariel::snowman(11114411) << endl;   
+	/* Should print:
 _===_
 (.,.)
 ( : )
 ( : )
 	*/
-	cout << ariel::snowman(33232124) << endl;   /* Should print:
+	//cout << ariel::snowman(33232124) << endl;   
+	/* Should print:
    _
   /_\
 \(o_O)
  (] [)>
  (   )
 	*/
+
+	cout << ariel::snowman(11211211) << endl;
+
 	try {
 		cout << ariel::snowman(5) << endl;   // Exception - not a valid code
 	} catch (exception& ex) {

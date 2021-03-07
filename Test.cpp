@@ -13,6 +13,7 @@ TEST_CASE("Test nagitive") {
     CHECK_THROWS(snowman(-1));
     CHECK_THROWS(snowman(-555));
     CHECK_THROWS(snowman(-3));
+    CHECK_THROWS(snowman(-1114441));
 }
 
 TEST_CASE("Test length") {

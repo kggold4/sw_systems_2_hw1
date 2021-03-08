@@ -14,6 +14,7 @@ TEST_CASE("Test nagitive") {
     CHECK_THROWS(snowman(-555));
     CHECK_THROWS(snowman(-3));
     CHECK_THROWS(snowman(-1114441));
+    CHECK_THROWS(snowman(-11111111));
 }
 
 TEST_CASE("Test length") {
@@ -23,6 +24,8 @@ TEST_CASE("Test length") {
     CHECK_THROWS(snowman(1));
     CHECK_THROWS(snowman(00));
     CHECK_THROWS(snowman(0));
+    CHECK_THROWS(snowman(123456789));
+    CHECK_THROWS(snowman(1111111));
 }
 
 TEST_CASE("Test invalid input range") {
@@ -31,6 +34,8 @@ TEST_CASE("Test invalid input range") {
     CHECK_THROWS(snowman(00000000));
     CHECK_THROWS(snowman(11111117));
     CHECK_THROWS(snowman(01234123));
+    CHECK_THROWS(snowman(44445444));
+    CHECK_THROWS(snowman(54444444));
 }
 
 TEST_CASE("Snowman code 11114411") {
@@ -92,4 +97,3 @@ TEST_CASE("Snowman code 13324122") {
 TEST_CASE("Snowman code 11211211") {
     CHECK(snowman(11211211) == string(" _===_\n (o,.)/\n<( : )\n ( : )"));
 }
-

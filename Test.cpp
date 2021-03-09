@@ -38,12 +38,24 @@ TEST_CASE("Test invalid input range") {
     CHECK_THROWS(snowman(54444444));
 }
 
-TEST_CASE("Snowman code 11114411") {
-    CHECK(snowman(11114411) == string("_===_\n(.,.)\n( : )\n( : )"));
-}
-
 TEST_CASE("Snowman code 11111111") {
     CHECK(snowman(11111111) == string(" _===_\n (.,.)\n<( : )>\n ( : )"));
+}
+
+TEST_CASE("Snowman code 22222222") {
+    CHECK(snowman(22222222) == string("  ___\n .....\n\\(o.o)/\n (] [)\n (\\ \\)"));
+}
+
+TEST_CASE("Snowman code 33333333") {
+    CHECK(snowman(33333333) == string("   _\n  /_\\\n (O_O)\n/(> <)\\\n (___)"));
+}
+
+TEST_CASE("Snowman code 44444444") {
+    CHECK(snowman(44444444) == string(" ___\n(_*_)\n(- -)\n(   )\n(   )"));
+}
+
+TEST_CASE("Snowman code 11114411") {
+    CHECK(snowman(11114411) == string("_===_\n(.,.)\n( : )\n( : )"));
 }
 
 TEST_CASE("Snowman code 33232124") {

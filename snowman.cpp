@@ -4,11 +4,15 @@
 
 using namespace std;
 
+// consts
 const unsigned int MAX_NUMS = 8;
+const unsigned int TEN = 10;
 const std::string SPACE = " ";
-enum index { i1, i2, i3, i4, i5, i6, i7, i8};
-const int TEN = 10;
 
+// indexes for the string of the given id (to string)
+enum index { i1, i2, i3, i4, i5, i6, i7, i8};
+
+// implements of namespace ariel
 namespace ariel {
 
     // hat 1
@@ -127,6 +131,7 @@ namespace ariel {
         }
     }
 
+    // snowman main function
     std::string snowman(unsigned int id) {
 
         // casting the id to a string and create result string

@@ -8,6 +8,7 @@ using namespace ariel;
 #include <string>
 using namespace std;
 
+// testing nagitive cases
 TEST_CASE("Test nagitive") {
     CHECK_THROWS(snowman(-11144411));
     CHECK_THROWS(snowman(-1));
@@ -17,6 +18,7 @@ TEST_CASE("Test nagitive") {
     CHECK_THROWS(snowman(-11111111));
 }
 
+// testing length cases
 TEST_CASE("Test length") {
     CHECK_THROWS(snowman(1114441));
     CHECK_THROWS(snowman(111444221));
@@ -28,6 +30,7 @@ TEST_CASE("Test length") {
     CHECK_THROWS(snowman(1111111));
 }
 
+// testing invalid range cases
 TEST_CASE("Test invalid input range") {
     CHECK_THROWS(snowman(11140221));
     CHECK_THROWS(snowman(11141251));
@@ -38,6 +41,7 @@ TEST_CASE("Test invalid input range") {
     CHECK_THROWS(snowman(54444444));
 }
 
+// testing general cases of snowmans
 TEST_CASE("Snowman code 11111111") {
     CHECK(snowman(11111111) == string(" _===_\n (.,.)\n<( : )>\n ( : )"));
 }

@@ -6,7 +6,7 @@ This assignments is the implementation of the challenge: https://codegolf.stacke
 
 ## How to use:
 
-By given number with lenth og 8 digits and contains numbers in range of 1-4, the function snoman will generate a string represents snowman by this code.
+By given number with lenth of 8 digits that contains numbers in range of 1-4, the function snoman will generate a string represents snowman by this code.
 
 ## for example:
 * for the code: ```11114411``` the snowman function will return:

@@ -24,3 +24,5 @@ _===_
  (] [)>
  (   )
 ```
+
+* by given <b>invalid</b> code for a snow man the function will throw exception

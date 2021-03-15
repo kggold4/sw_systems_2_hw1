@@ -123,7 +123,7 @@ namespace ariel {
         case '1':
             return " : ";
         case '2':
-            return "\\ \\";
+            return "\" \"";
         case '3':
             return "___";
         default:
@@ -151,7 +151,9 @@ namespace ariel {
         }
 
         // checking if length of id is 8
-        if(i != MAX_NUMS) { throw std::invalid_argument("Invalid code '5'"); }
+        if(i != MAX_NUMS) {
+            throw std::invalid_argument("Invalid code '" + std::to_string(temp) + "'");
+        }
 
         // {H , N , L , R , X , Y , T , B }
         // {i1, i2, i3, i4, i5, i6, i7, i8}
